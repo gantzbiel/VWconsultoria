@@ -89,13 +89,9 @@ nav#menu ul {
 nav#menu ul {
     list-style: none;
     text-transform: uppercase;
-    position: absolute;
-    top: -20px;
-    left: 900px;
 }
 
 nav#menu li {
-    display: inline-block;
     background-color: thistle;
     padding: 10px;
     margin: 2x;
@@ -143,5 +139,23 @@ footer#rodape {
    clear: both; 
 }
 table#orcamento{
+
+    /* Estilos para telas menores (tablets e celulares) */
+@media (max-width: 768px) {
+    nav#menu ul {
+        display: block; /* Faz a lista ocupar a largura total */
+        text-align: center; /* Centraliza os itens (opcional) */
+    }
+
+    nav#menu li {
+        display: block; /* Faz cada item ocupar uma linha */
+        margin: 10px 0; /* Adiciona um espaçamento vertical entre os itens */
+        border-bottom: 1px solid #ccc; /* Adiciona uma linha de separação (opcional) */
+    }
+
+    nav#menu li:last-child {
+        border-bottom: none; /* Remove a linha da última item (opcional) */
+    }
+}
     border: 1px solid #606060;
 }
