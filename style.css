@@ -296,54 +296,26 @@ table#orcamento{
 
 
 
-  nav#menu ul {
-    display: flex; /* Para alinhar os itens horizontalmente */
-    list-style: none;
-    text-transform: uppercase;
-    justify-content: flex-end; /* Alinha os itens à direita (como na imagem do PC) */
-    padding: 0; /* Remove o padding padrão da lista */
-    margin: 0; /* Remove a margem padrão da lista */
+    nav#menu li {
+
+        display: block; /* Faz cada item ocupar uma linha */
+
+        margin: 10px 0; /* Adiciona um espaçamento vertical entre os itens */
+
+        border-bottom: 1px solid #ccc; /* Adiciona uma linha de separação (opcional) */
+
+    }
+
+
+
+    nav#menu li:last-child {
+
+        border-bottom: none; /* Remove a linha da última item (opcional) */
+
+    }
+
 }
 
-nav#menu li {
-    display: inline-block; /* Para que os itens fiquem lado a lado */
-    background-color: thistle;
-    padding: 10px;
-    margin-left: 10px; /* Adiciona um espaçamento entre os itens */
-}
+    border: 1px solid #606060;
 
-nav#menu li:first-child {
-    margin-left: 0; /* Remove a margem do primeiro item */
-}
-
-nav#menu h1 {
-    display: none;
-}
-
-nav#menu a {
-    color: #000;
-    text-decoration: none;
-}
-
-nav#menu a:hover {
-    color: #e31111;
-}
-
-/* Estilos para telas menores (tablets e celulares) */
-@media (max-width: 768px) {
-    nav#menu ul {
-        display: block; /* Faz a lista ocupar a largura total */
-        text-align: center; /* Centraliza os itens (opcional) */
-    }
-
-    nav#menu li {
-        display: block; /* Faz cada item ocupar uma linha */
-        margin: 10px 0; /* Adiciona um espaçamento vertical entre os itens */
-        border-bottom: 1px solid #ccc; /* Adiciona uma linha de separação (opcional) */
-        text-align: center; /* Centraliza o texto dos links no celular */
-    }
-
-    nav#menu li:last-child {
-        border-bottom: none; /* Remove a linha da última item (opcional) */
-    }
 }
