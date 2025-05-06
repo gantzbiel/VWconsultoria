@@ -7,31 +7,47 @@
 </head>
 <script src="funcoes.js">
 
-    window.onload = function() {
+ window.onload = function() {
     const carrossel = document.getElementById('carrossel');
     if (carrossel) {
         const images = carrossel.getElementsByTagName('img');
         const numImages = images.length;
         let totalWidth = 0;
 
+        // Calcula a largura total de todas as imagens (com margens)
         for (let i = 0; i < numImages; i++) {
-            totalWidth += images[i].offsetWidth + 10; // Adiciona a largura da imagem + a margem direita (se houver)
+            totalWidth += images[i].offsetWidth + 10; // +10 pela margem direita (ajuste se necessário)
         }
 
-        // Duplica o conteúdo para criar o loop infinito suave
+        // Duplica o conteúdo do carrossel para criar o loop contínuo
         carrossel.innerHTML += carrossel.innerHTML;
 
-        // Ajusta a duração da animação com base na largura total
-        const animationDuration = totalWidth / 30; // Ajuste o divisor (30) para controlar a velocidade
-        const styleSheet = document.styleSheets[0]; // Pega a primeira folha de estilo (assumindo que seu CSS está lá)
+        // Ajusta a duração da animação para percorrer o dobro da largura
+        const animationDuration = totalWidth / 30; // Ajuste o divisor para controlar a velocidade
+
+        // Remove qualquer animação existente no CSS para evitar conflitos
+        carrossel.style.animation = 'none';
+
+        // Aplica a nova animação que percorre o dobro da largura
+        carrossel.style.animation = `carrossel-loop ${animationDuration * 2}s linear infinite`;
+
+        // Cria a nova regra @keyframes para o loop contínuo
+        const styleSheet = document.styleSheets[0];
         const keyframes = `@keyframes carrossel-loop {
-            0% { transform: translateX(0%); }
-            50% { transform: translateX(-${totalWidth}px); }
-            100% { transform: translateX(-${totalWidth * 2}px); }
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-${totalWidth}px); } /* Move para o final da primeira sequência */
         }`;
 
+        // Procura e remove a regra de animação antiga (se existir)
+        for (let i = 0; i < styleSheet.cssRules.length; i++) {
+            if (styleSheet.cssRules[i].name === 'carrossel-loop') {
+                styleSheet.deleteRule(i);
+                break;
+            }
+        }
+
+        // Insere a nova regra de animação
         styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
-        carrossel.style.animationDuration = `${animationDuration}s`;
     }
 };
     </script>
