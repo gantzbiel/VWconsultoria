@@ -14,8 +14,9 @@ div#interface {
 
     h1 {
     font-family: Arial;
-    font-size: 40pt;
+    font-size: 25pt;
     color: black;
+    top: -20px;
 }
 
 /* papel 
@@ -30,16 +31,17 @@ header#cabecalho h1 element {
 
 header#cabecalho h1 {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 30px;
+    font-size: 18px;
     color: #e31111;
     text-shadow: 1px 1px 1px rgba(34, 13, 144, 0.6);
     padding: 0px;
     margin-bottom: 0px;
+    top: -20px;
 }
 
 header#cabecalho h2 {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
+    font-size: 12px;
     color: ;
     padding: 0px;
     margin-top: 0px;
@@ -83,23 +85,22 @@ figure.foto-meia_tela:hover figcaption {
 /* formatação do menu*/
 
 nav#menu ul {
-   display: flex;
-   justify-content: flex-end;
-   padding: 0;
-   margin: 0;
-    
+    display: block;
 }
 
 nav#menu ul {
     list-style: none;
     text-transform: uppercase;
+    position: absolute;
+    top: -20px;
+    left: 900px;
 }
 
 nav#menu li {
     display: inline-block;
     background-color: thistle;
     padding: 10px;
-    margin-left: 10x;
+    margin: 2x;
 
 }
 
@@ -146,22 +147,27 @@ footer#rodape {
 table#orcamento{
     border: 1px solid #606060;
 }
-
-
-table#orcamento{
-
-    border: 1px solid #606060;
-
+#carrossel-container {
+    width: 100%; /* O carrossel ocupará toda a largura do header */
+    overflow: hidden; /* Esconde as imagens que estão fora da tela */
+    margin-top: 10px; /* Espaço entre o menu e o carrossel (ajuste conforme necessário) */
 }
 
-@media (max-width: 768px) {
-    nav#menu ul {
-        display: block; /* Faz a lista ocupar a largura total */
+#carrossel {
+    white-space: nowrap; /* Evita que as imagens quebrem para a próxima linha */
+    display: inline-block; /* Permite que o JavaScript controle o movimento */
+    animation: carrossel-loop 53s linear infinite; /* Ajuste a duração (15s) conforme o número de imagens e a velocidade desejada */
 }
- nav#menu li {
-        display: block; /* Faz cada item ocupar uma linha */
-        margin: 10px 0; /* Adiciona um espaçamento vertical entre os itens *
- }
- nav#menu li:last-child {
-        border-bottom: none; /* Remove a linha da última item (opcional) */
-    }
+
+#carrossel img {
+    width: auto; /* Ajuste a largura desejada das imagens */
+    height: 580px; /* Ajuste a altura desejada das imagens */
+    margin-right: 10px; /* Espaço entre as imagens (opcional) */
+    display: inline-block; /* Coloca as imagens lado a lado */
+}
+
+/* Animação do loop */
+@keyframes carrossel-loop {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); } /* Move o carrossel para a esquerda na largura total do conteúdo */
+}
