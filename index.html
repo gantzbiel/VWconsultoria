@@ -3,11 +3,38 @@
 <head>
     <meta charset="UTF-8"/>
     <title>VWconsultoria</title>
+    <link rel="stylesheet" type="text/css" href="projeto-glass-html5/_css/estilo.css"/>
 </head>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
-<script src="projeto-html5/_javascript/funcoes.js">
-    
-</script>
+<script src="projeto-glass-html5/_javascript/funcoes.js">
+
+    window.onload = function() {
+    const carrossel = document.getElementById('carrossel');
+    if (carrossel) {
+        const images = carrossel.getElementsByTagName('img');
+        const numImages = images.length;
+        let totalWidth = 0;
+
+        for (let i = 0; i < numImages; i++) {
+            totalWidth += images[i].offsetWidth + 10; // Adiciona a largura da imagem + a margem direita (se houver)
+        }
+
+        // Duplica o conteúdo para criar o loop infinito suave
+        carrossel.innerHTML += carrossel.innerHTML;
+
+        // Ajusta a duração da animação com base na largura total
+        const animationDuration = totalWidth / 30; // Ajuste o divisor (30) para controlar a velocidade
+        const styleSheet = document.styleSheets[0]; // Pega a primeira folha de estilo (assumindo que seu CSS está lá)
+        const keyframes = `@keyframes carrossel-loop {
+            0% { transform: translateX(0%); }
+            50% { transform: translateX(-${totalWidth}px); }
+            100% { transform: translateX(-${totalWidth * 2}px); }
+        }`;
+
+        styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+        carrossel.style.animationDuration = `${animationDuration}s`;
+    }
+};
+    </script>
 <body>
     <div id="interface">
         <header id="cabecalho">
@@ -20,17 +47,20 @@
             <nav id="menu" aria-label="Menu Principal">
                 <h1>Menu principal</h1>
                 <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="A empresa.html">A Empresa</a></li>
-                    <li><a href="Servico.html">Serviços</a></li>
-                    <li><a href="fale-conosco.html">Contatos</a></li>
+                    <li><a href="VWconsultoria.html">Início</a></li>
+                    <li><a href="projeto-glass-html5/A empresa.html">A Empresa</a></li>
+                    <li><a href="projeto-glass-html5/Servico.html">Serviços</a></li>
+                    <li><a href="projeto-glass-html5/_imagens/tyGR0IkITOdIn987iOAn--1--qxv0n.jpg">Contatos</a></li>
                 </ul>
             </nav>
+            <div id="carrossel-container">
+                <div id="carrossel">
+                    <img src="anastassia-anufrieva-ecHGTPfjNfA-unsplash.jpg" alt="Imagem 1">
+                    <img src="alexander-grey-tn57JI3CewI-unsplash.jpg" alt="Imagem 2">
+                    <img src="tyGR0IkITOdIn987iOAn--1--qxv0n.jpg" alt="Imagem 3">
+                    </div>
+            </div>
         </header>
-        <figure class="foto-meia_tela">
-            <img src="imagencerta.jpg" alt="Imagem da VW Assessoria"/>
-            <figcaption>
-                </figcaption>
 
         <main id="conteudo-principal">
             <section id="empresa">
