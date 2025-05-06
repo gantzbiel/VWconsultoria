@@ -14,9 +14,8 @@ div#interface {
 
     h1 {
     font-family: Arial;
-    font-size: 25pt;
+    font-size: 18pt;
     color: black;
-    top: -20px;
 }
 
 /* papel 
@@ -36,7 +35,6 @@ header#cabecalho h1 {
     text-shadow: 1px 1px 1px rgba(34, 13, 144, 0.6);
     padding: 0px;
     margin-bottom: 0px;
-    top: -20px;
 }
 
 header#cabecalho h2 {
