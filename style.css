@@ -81,29 +81,28 @@ figure.foto-meia_tela:hover figcaption {
 }
 
 /* formatação do menu*/
-
-nav#menu ul {
-    display: block;
+nav#menu {
+    display: block; /* Garante que o nav ocupe a largura total disponível */
+    position: static; /* Remove o posicionamento absoluto */
+    top: auto; /* Reset do top */
+    left: auto; /* Reset do left */
+    text-transform: uppercase;
+    padding: 10px 0; /* Adiciona um pouco de padding vertical */
 }
 
 nav#menu ul {
     list-style: none;
-    text-transform: uppercase;
-    position: absolute;
-    top: -20px;
-    left: 900px;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Habilita o Flexbox para os itens da lista */
+    justify-content: center; /* Centraliza os itens do menu horizontalmente (você pode mudar para space-around ou space-between) */
 }
 
 nav#menu li {
-    display: inline-block;
+    display: inline; /* Remove o inline-block, pois o Flexbox já cuida do layout */
     background-color: thistle;
-    padding: 10px;
-    margin: 2x;
-
-}
-
-nav#menu li:hover {
-    background-color: #606060;
+    padding: 10px 15px; /* Aumentei o padding horizontal para melhor espaçamento */
+    margin: 0 5px; /* Adiciona margem horizontal entre os itens */
 }
 
 nav#menu h1 {
@@ -168,4 +167,26 @@ table#orcamento{
 @keyframes carrossel-loop {
     0% { transform: translateX(0%); }
     100% { transform: translateX(-100%); } /* Move o carrossel para a esquerda na largura total do conteúdo */
+}
+/* Estilos para telas menores (ex: tablets e smartphones) */
+@media (max-width: 768px) {
+    nav#menu ul {
+        flex-direction: column; /* Alinha os itens verticalmente */
+        align-items: center; /* Centraliza os itens verticalmente */
+    }
+
+    nav#menu li {
+        display: block; /* Faz cada item ocupar uma linha inteira */
+        width: 100%;
+        margin: 5px 0; /* Adiciona margem vertical entre os itens */
+        text-align: center; /* Centraliza o texto dentro do item */
+    }
+}
+
+/* Estilos para telas ainda menores (ex: smartphones) */
+@media (max-width: 480px) {
+    nav#menu li {
+        padding: 8px 10px; /* Reduz um pouco o padding em telas menores */
+        font-size: 0.9em; /* Reduz um pouco a fonte em telas menores */
+    }
 }
