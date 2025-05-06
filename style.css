@@ -161,7 +161,6 @@ table#orcamento{
     height: 580px; /* Ajuste a altura desejada das imagens */
     margin-right: 10px; /* Espaço entre as imagens (opcional) */
     display: inline-block; /* Coloca as imagens lado a lado */
-    animation: carrossel-loop 50s linear infinite;
 }
 
 /* Animação do loop */
