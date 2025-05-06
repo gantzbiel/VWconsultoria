@@ -153,7 +153,6 @@ table#orcamento{
 #carrossel {
     white-space: nowrap; /* Evita que as imagens quebrem para a próxima linha */
     display: inline-block; /* Permite que o JavaScript controle o movimento */
-    animation: carrossel-loop 53s linear infinite; /* Ajuste a duração (15s) conforme o número de imagens e a velocidade desejada */
 }
 
 #carrossel img {
