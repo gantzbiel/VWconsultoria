@@ -158,7 +158,7 @@ table#orcamento{
 
 #carrossel img {
     width: auto; /* Ajuste a largura desejada das imagens */
-    height: 580px; /* Ajuste a altura desejada das imagens */
+    height: 650px; /* Ajuste a altura desejada das imagens */
     margin-right: 10px; /* Espaço entre as imagens (opcional) */
     display: inline-block; /* Coloca as imagens lado a lado */
 }
