@@ -2,47 +2,6 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8"/>
-    <title>VWconsultoria</title>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
-</head>
-<script src="funcoes.js">
-
-window.onload = function() {
-    const carrossel = document.getElementById('carrossel');
-    if (carrossel) {
-        const images = carrossel.getElementsByTagName('img');
-        const numImages = images.length;
-        let totalWidth = 0;
-
-        for (let i = 0; i < numImages; i++) {
-            totalWidth += images[i].offsetWidth + 10; // +10 pela margem direita
-        }
-
-        carrossel.innerHTML += carrossel.innerHTML;
-        carrossel.style.width = `${totalWidth * 2}px`; // Define a largura para o dobro do conteúdo
-
-        const animationDuration = totalWidth / 30;
-
-        carrossel.style.animation = 'none';
-        carrossel.style.animation = `carrossel-loop ${animationDuration * 2}s linear infinite`;
-
-        const styleSheet = document.styleSheets[0];
-        const keyframes = `@keyframes carrossel-loop {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-${totalWidth}px); }
-        }`;
-
-        for (let i = 0; i < styleSheet.cssRules.length; i++) {
-            if (styleSheet.cssRules[i].name === 'carrossel-loop') {
-                styleSheet.deleteRule(i);
-                break;
-            }
-        }
-
-        styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
-    }
-};
-    </script>
 <body>
     <div id="interface">
         <header id="cabecalho">
@@ -51,36 +10,6 @@ window.onload = function() {
                 <h2>Extintores e Consultoria administrativa</h2>
             </hgroup>
             
-            </figure>
-            <nav id="menu" aria-label="Menu Principal">
-                <h1>Menu principal</h1>
-                <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="A empresa.html">A Empresa</a></li>
-                    <li><a href="Servico.html">Serviços</a></li>
-                    <li><a href="fale-conosco.html">Contatos</a></li>
-                </ul>
-            </nav>
-            <div id="carrossel-container">
-                <div id="carrossel">
-                    <img src="imagens/frente da loja.2.png" alt="Imagem 0">
-                    <img src="imagens/tyGR0IkITOdIn987iOAn--1--qxv0n.jpg" alt="Imagem 1">
-                    <img src="imagens/TijYKRf4fjTWVivTOoEu--1--7lrtw.jpg" alt="Imagem 2">
-                    <img src="imagens/desk-3139127_1280.jpg" alt="Imagem 3">
-                    </div>
-            </div>
-        </header>
-        <main id="conteudo-principal">
-            <section id="empresa">
-                <h2>POR QUE ESCOLHER A VW?</h2>
-                <ul>
-                    <li><p>✔ Empresa Regularizada e Competente: Atendemos todas as exigências legais e somos certificados para prestar serviços de combate a incêndio e regularização documental.</p></li>
-                    <li><p>✔ Experiência e Qualidade: Nossa equipe técnica possui anos de atuação no mercado, com expertise em soluções completas e personalizadas.</p></li>
-                    <li><p>✔ Produtos e Serviços de Qualidade: Trabalhamos com extintores e equipamentos certificados pelos órgãos competentes, garantindo segurança e durabilidade.</p></li>
-                    <li><p>✔ Atendimento Personalizado: Cada cliente é único. Oferecemos soluções sob medida, de acordo com o porte e segmento de sua empresa.</p></li>
-                    <li><p>✔ Compromisso com a Segurança: Nossa prioridade é a proteção de vidas e patrimônios, sempre com responsabilidade e seriedade.</p></li>
-                </ul>
-            </section>
         </main>
 
         <aside id="barra-lateral">
