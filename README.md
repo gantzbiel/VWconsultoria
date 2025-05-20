@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8"/>
 <body>
- 
     <div id="interface">
         <header id="cabecalho">
             <hgroup>
